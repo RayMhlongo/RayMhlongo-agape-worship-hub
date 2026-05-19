@@ -1,0 +1,17 @@
+{
+  "name": "Agape Worship Hub",
+  "short_name": "Agape Hub",
+  "description": "Modern worship team scheduling, song, setlist, PDF, and AI assistant platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f7f3",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "/agape-logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
