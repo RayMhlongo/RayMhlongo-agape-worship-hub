@@ -42,7 +42,9 @@ jobs:
         run: npm run android:sync
 
       - name: Prepare Gradle wrapper
-        run: chmod +x android/gradlew
+        run: |
+          chmod +x android/gradlew
+          echo "sdk.dir=$ANDROID_HOME" > android/local.properties
 
       - name: Build debug APK
         working-directory: android
