@@ -3,6 +3,8 @@ import { Document, Image, Page, StyleSheet, Text, View, renderToStream } from "@
 import { NextRequest } from "next/server";
 import { seedMembers, seedSchedules } from "@/data/seed";
 
+export const dynamic = "force-static";
+
 const styles = StyleSheet.create({
   page: {
     padding: 34,

@@ -6,4 +6,10 @@ dist/
 .env*.local
 firebase-debug.log
 firestore-debug.log
+android/app/google-services.json
+android/app/release/
+android/.gradle/
+android/**/build/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
 *.tsbuildinfo

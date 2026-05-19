@@ -14,6 +14,7 @@ The visual system is inspired by `codebucks27/Next.js-Developer-Portfolio-Starte
 - React PDF renderer
 - Gemini API-ready assistant with local fallback
 - PWA manifest and app icons using the supplied Agape logo
+- Capacitor Android APK packaging
 
 ## Getting Started
 
@@ -60,6 +61,33 @@ firebase deploy
 ```
 
 The included `firebase.json`, `firestore.rules`, and `storage.rules` provide a deploy-ready starting point.
+
+## Android APK Support
+
+The app is configured with Capacitor so it can run as a web app, PWA, and Android APK.
+
+Useful commands:
+
+```bash
+npm run build:mobile
+npm run android:sync
+npm run android:open
+npm run android:apk:debug
+```
+
+Android package name:
+
+```text
+za.org.agape.worshiphub
+```
+
+Debug APK output:
+
+```text
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+Signed APK builds should be generated through Android Studio with a release keystore. Full Android instructions are in [`docs/ANDROID.md`](docs/ANDROID.md).
 
 ## GitHub Deployment
 

@@ -19,6 +19,7 @@ import {
   X
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { NativeBridge } from "@/components/NativeBridge";
 import { useWorshipStore } from "@/store/useWorshipStore";
 
 const nav = [
@@ -88,7 +89,8 @@ export function AppShell({ active, onNavigate, children }: { active: string; onN
 
   return (
     <div className="min-h-screen thin-grid">
-      <div className="mx-auto flex min-h-screen max-w-[1600px] gap-4 px-3 py-3 md:px-5 md:py-5">
+      <NativeBridge />
+      <div className="safe-top mx-auto flex min-h-screen max-w-[1600px] gap-4 px-3 py-3 pb-24 md:px-5 md:py-5 lg:pb-5">
         <div className="premium-panel sticky top-5 hidden h-[calc(100vh-40px)] w-72 shrink-0 rounded-[28px] lg:block">{sidebar}</div>
 
         <main className="min-w-0 flex-1">
@@ -140,6 +142,28 @@ export function AppShell({ active, onNavigate, children }: { active: string; onN
           </motion.div>
         ) : null}
       </AnimatePresence>
+
+      <nav className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line)] bg-[var(--background)]/88 px-2 pt-2 backdrop-blur-2xl lg:hidden">
+        <div className="no-scrollbar native-scroll flex gap-2 overflow-x-auto">
+          {nav.slice(0, 8).map((item) => {
+            const Icon = item.icon;
+            const selected = active === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => onNavigate(item.id)}
+                className={`focus-ring flex min-h-16 min-w-[78px] flex-col items-center justify-center gap-1 rounded-2xl px-3 text-[10px] font-black transition active:scale-95 ${
+                  selected ? "bg-[var(--foreground)] text-[var(--background)]" : "text-[var(--muted)]"
+                }`}
+                aria-label={item.label}
+              >
+                <Icon size={19} />
+                <span className="max-w-[68px] truncate">{item.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </nav>
     </div>
   );
 }
